@@ -1,2 +1,2 @@
 # smatch-diff
-A few tools to find bugs in latest linux-next.
+Two scripts to easily find new bugs in linux-next by comparing smatch_warns.txt outputs.

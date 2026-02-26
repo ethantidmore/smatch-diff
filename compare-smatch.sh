@@ -5,20 +5,24 @@ OLD_SMATCH="old_smatch_warns.txt"
 BLACKLIST="blacklist.txt"
 
 awk '
-NR==FNR {
-    sig = $0
+function get_sig(line_str) {
+    sig = line_str
+    
     gsub(/:[0-9]+/, "", sig)
+    
+    gsub(/lines?: [0-9, ]+/, "lines:", sig)
+    
     gsub(/line [0-9]+/, "line", sig)
     
-    old_warns[sig] = 1
+    return sig
+}
+
+NR==FNR {
+    old_warns[get_sig($0)] = 1
     next
 }
 {
-    sig = $0
-    gsub(/:[0-9]+/, "", sig)
-    gsub(/line [0-9]+/, "line", sig)
-    
-    if (!old_warns[sig]) {
+    if (!old_warns[get_sig($0)]) {
         print $0
     }
 }' "$OLD_SMATCH" "$KERN_TREE/smatch_warns.txt" | grep -Fvf "$BLACKLIST"

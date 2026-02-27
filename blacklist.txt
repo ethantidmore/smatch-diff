@@ -5,3 +5,4 @@ Locked on
 Unlocked on
 warn: inconsistent indenting
 wait_for_completion_timeout() error: 'wait_for_common()' returns negative and
+intel_pasid_alloc_table() warn: error code type promoted to positive

@@ -25,4 +25,5 @@ make -j"$CORES"
 
 make allmodconfig
 
-./smatch/smatch_scripts/build_kernel_data.sh && ./smatch/smatch_scripts/test_kernel.sh --endian
+./smatch/smatch_scripts/build_kernel_data.sh
+./smatch/smatch_scripts/test_kernel.sh --endian

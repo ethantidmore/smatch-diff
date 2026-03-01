@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 KERN_TREE="linux-smatch-test"
 OLD_SMATCH="old_smatch_warns.txt"
